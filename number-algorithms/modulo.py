@@ -35,8 +35,18 @@ def imply_substitution_rule( x, x1, y, y1, N ):
         
         return 0
 
+def modulo_add( x, y, N):
+        '''
+        If input size of 'x' is being considered in binary format then let it be 'n' = log ( x ) [ base = 2 ]
+        If we have this natural hypothetical computer of just ' one bit at a time ' then this summation operation takes
+        order of O(n) time. 
+        And we also make sure that resulting sum is always under [0, N-1] by doing SUM % N = final_result MOD N
+        (Here thinking the remainder equivalent to substracting the raw sum by 'N' until it becomes [0, N-1] will be helpful )
+        Also we are just using high level decimal arithmetic operation to demonstrate this concept, correct way to understand 
+        this whole thing would be to write binary representation class of numbers and doing arithmetic operations bit by bit.
+        '''
+        return x_modulo_N(x+y, N)
 
-        
 
 if __name__ == "__main__":
         print x_modulo_N(75,24)
@@ -51,6 +61,8 @@ if __name__ == "__main__":
         # We can also test this substituion rule against 'equivalence classes of N within a given integer range Z
         # i.e. [ ... 25, 1, -23 .... ] or [ ....12, 36, 60.... ] is a snapshot of two equivalence class of 24 with center element being '1' and '12'
         # and we just used 25,1 and 12,36
+
+        print modulo_add(26,78,24)
 
 '''
 Output :
